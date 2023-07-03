@@ -8,10 +8,10 @@
 <body>
   <p>Currency Exchange</p>
   <p>Welcome to the currency exchange. You will find up-to-date information on most currency's used in the world and have the ability to convert it from (USD) United States Dollars, to most other popular currencies around the world.</p>
-  <form>
+  <form id="exchangeInput">
     <p>Please input the amount of US dollars you are wanting to convert.</p>
-    <p>Please choose the type of currency you are wanting to convert too.</p>
     <input class="amount" id="USD" type="number" required>
+    <p>Please choose the type of currency you are wanting to convert too.</p>
     <select class="second-currency" id="second-currency">
       <option id="second" value="choose">
         Choose:
@@ -34,6 +34,6 @@
       <br>
       <button type="submit">Exchange Currency</button>
   </form>
-  <p id="exchange-output"></p>
+  <p id="exchangeOutput"></p>
 </body>
 </html>

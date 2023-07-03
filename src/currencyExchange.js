@@ -1,6 +1,6 @@
 export default class Currency {
-  static async exchange(){
-    return fetch(`https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/latest/USD`)
+  static async exchange(usdInput){
+    return fetch(`https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/latest/${inputUSD}`)
       .then(function (response){
         if(!response.ok) {
           let errorResponse = `${response.status} ${response.statusText}`;
