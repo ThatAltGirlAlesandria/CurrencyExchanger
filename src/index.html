@@ -9,17 +9,21 @@
   <p>Currency Exchange</p>
   <p>Welcome to the currency exchange. You will find up-to-date information on most currency's used in the world and have the ability to convert it from (USD) United States Dollars, to most other popular currencies around the world.</p>
   <form id="exchangeInput">
-    <p>Please input the amount of US dollars you are wanting to convert.</p>
-    <input class="amount" id="USD" type="number" required>
-    <label for="secondCurrency">Please choose the type of currency you are wanting to convert too.</label>
-    <select class="second-currency" id="secondCurrency">
-      <option id="second" value="choose"> Choose: </option>
-      <option id="second" value="ZWL">ZWL Zimbabwean Dollar</option>
-      <option id="second" value="UAH">UAH Ukrainian Hryvnia</option>
-      <option id="second" value="TRY">TRY Turkish Lira</option>
-      <option id="second" value="NZD">NZD New Zealand Dollar</option>
-      <option id="second" value="DKK">DKK Danish Krone</option>
-    </select>
+    <div class="container">
+      <p>Please input the amount of US dollars you are wanting to convert.</p>
+      <input class="amount" id="USD" type="number" required>
+    </div>
+    <div class="container">
+      <label for="secondCurrency">Please choose the type of currency you are wanting to convert too.</label>
+      <select class="second-currency" id="secondCurrency">
+        <option id="second" value="choose"> Choose: </option>
+        <option id="second" value="ZWL">ZWL Zimbabwean Dollar</option>
+        <option id="second" value="UAH">UAH Ukrainian Hryvnia</option>
+        <option id="second" value="TRY">TRY Turkish Lira</option>
+        <option id="second" value="NZD">NZD New Zealand Dollar</option>
+        <option id="second" value="DKK">DKK Danish Krone</option>
+      </select>
+    </div>
     <br>
     <button type="submit" id="chaChing">Exchange Currency</button>
   </form>
