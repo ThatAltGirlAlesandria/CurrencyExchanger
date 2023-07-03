@@ -1,10 +1,10 @@
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
-import {currencyExchange} from './currencyExchange.js';
+import {CurrencyExchange} from './currencyExchange.js';
 
 function exchange(inputUSD) {
-  currencyExchange.exchange(inputUSD)
+  CurrencyExchange.exchange(inputUSD)
     .then(function(response) {
       if (response.usd_conversion) {
         printResponse(response);
