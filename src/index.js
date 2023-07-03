@@ -1,19 +1,48 @@
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
-import {Currency} from '.currencyExchange.js';
+import {currencyExchange} from './currencyExchange.js';
 
 function exchange(inputUSD) {
-  Currency.exchange()
+  currencyExchange.exchange(inputUSD)
     .then(function(response) {
       if (response.usd_conversion) {
         printResponse(response);
       } else {
-        printError(response);
+        errorResponse(response);
       }
     });
 }
 
 function printResponse(response) {
   let userInput = document.querySelector('#USD').value;
+  let exchangeUSDForm = document.querySelector('#secondCurrency');
+  let exchangeOptions = document.querySelector('#secondCurrency').value;
+  let conversionOptions = [];
+
+  for (let option of exchangeUSDForm.options) {
+    conversionOptions.push(option.value);
+  }
+  let conversionResults = [];
+  conversionOptions.forEach (function(option){
+    if (exchangeOptions !== option) {
+      conversionResults.push(option);
+    }
+  });
+  if (conversionOptions.length === conversionResults.length) {
+    document.querySelector('#exchangeOutput').innerText = 'The selected currency is not supported by this database currently. Please check back later for updates. Sorry for any innconviance. Management.';
+  } else {
+    document.querySelector('#exchangeOutput').innerText = userInput * (response.usd_conversion['${exchangeOptions}']);
+  }
 }
+
+function errorResponse(error) {
+  document.querySelector('#exchangeOutput').innerText = `Sorry we've run into an error. Please check the code and let us know if we can help you any further. Management. ${error}`;
+}
+
+let handleFormSubmission = () => {
+  let inputUSD = document.querySelector('#USD').value;
+  exchange(inputUSD);
+};
+
+document.querySelector('#chaChing').addEventListener("submit", handleFormSubmission);

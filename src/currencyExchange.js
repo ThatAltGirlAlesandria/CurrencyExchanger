@@ -1,5 +1,5 @@
-export default class Currency {
-  static async exchange(usdInput){
+export default class currencyExchange {
+  static async exchange(inputUSD){
     return fetch(`https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/latest/${inputUSD}`)
       .then(function (response){
         if(!response.ok) {
@@ -9,8 +9,8 @@ export default class Currency {
           return response.json();
         }
       })
-    .catch(function (error) {
-      return error;
-    })
+      .catch(function (error) {
+        return error;
+      });
   }
 }

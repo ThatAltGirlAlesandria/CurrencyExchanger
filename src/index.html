@@ -11,28 +11,17 @@
   <form id="exchangeInput">
     <p>Please input the amount of US dollars you are wanting to convert.</p>
     <input class="amount" id="USD" type="number" required>
-    <p>Please choose the type of currency you are wanting to convert too.</p>
-    <select class="second-currency" id="second-currency">
-      <option id="second" value="choose">
-        Choose:
-      </option>
-      <option id="second" value="ZWL">
-        ZWL Zimbabwean Dollar
-      </option>
-      <option id="second" value="UAH">
-        UAH Ukrainian Hryvnia
-      </option>
-      <option id="second" value="TRY">
-        TRY Turkish Lira
-      </option>
-      <option id="second" value="NZD">
-        NZD New Zealand Dollar 
-      </option>
-      <option id="second" value="DKK">
-        DKK Danish Krone
-      </option>
-      <br>
-      <button type="submit">Exchange Currency</button>
+    <label for="secondCurrency">Please choose the type of currency you are wanting to convert too.</label>
+    <select class="second-currency" id="secondCurrency">
+      <option id="second" value="choose"> Choose: </option>
+      <option id="second" value="ZWL">ZWL Zimbabwean Dollar</option>
+      <option id="second" value="UAH">UAH Ukrainian Hryvnia</option>
+      <option id="second" value="TRY">TRY Turkish Lira</option>
+      <option id="second" value="NZD">NZD New Zealand Dollar</option>
+      <option id="second" value="DKK">DKK Danish Krone</option>
+    </select>
+    <br>
+    <button type="submit" id="chaChing">Exchange Currency</button>
   </form>
   <p id="exchangeOutput"></p>
 </body>
