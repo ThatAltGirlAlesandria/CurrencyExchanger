@@ -4,34 +4,30 @@ import { CurrencyExchange } from './currencyExchange.js';
 function handleFormSubmission(e) {
   e.preventDefault();
   let inputUSD = document.querySelector('#USD').value;
-  exchange(inputUSD);
+  let targetCurrency = document.querySelector('#secondCurrency').value;
+  exchange(inputUSD, targetCurrency);
 }
 
-function exchange(inputUSD) {
-  CurrencyExchange.exchange(inputUSD)
+function exchange(inputUSD, targetCurrency) {
+  CurrencyExchange.exchange(inputUSD, targetCurrency)
     .then(function(response) {
       if (response.error) {
         errorResponse(response.error);
       } else {
-        console.log(response); // Log the response for debugging purposes
+        console.log(response);
         printResponse(response);
       }
     })
     .catch(function(error) {
-      console.log(error); // Log the error for debugging purposes
+      console.log(error);
       errorResponse(error);
     });
 }
 
 function printResponse(response) {
-  let userInput = parseFloat(document.querySelector('#USD').value);
-  let exchangeOptions = document.querySelector('#secondCurrency').value;
-
-  if (response.usd_conversion && response.usd_conversion[exchangeOptions]) {
-    let conversionRate = parseFloat(response.usd_conversion[exchangeOptions]);
-    let convertedAmount = userInput * conversionRate;
-
-    document.querySelector('#exchangeOutput').innerText = convertedAmount.toFixed(2);
+  if (response.conversion_result && response.conversion_result) {
+    let conversionRate = parseFloat(response.conversion_result);
+    document.querySelector('#exchangeOutput').innerText = conversionRate.toFixed(2);
   } else {
     document.querySelector('#exchangeOutput').innerText = 'The selected currency is not supported by this database currently. Please check back later for updates. Sorry for any inconvenience. Management.';
   }
